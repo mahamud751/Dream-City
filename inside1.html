@@ -1,0 +1,181 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Hello, world!</title>
+</head>
+<style>
+    .page-item:hover {
+        background: #fff;
+    }
+
+    .page-link:hover {
+        background: #fff;
+    }
+</style>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="inside">
+            <div class="row d-flex justify-content-center align-items-center m-5 shadow">
+                <div class="col-lg-5">
+                    <div class="img-part">
+                        <img class="img-fluid" src="img/images/2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7 mt-5 p-5">
+                    <div class="title">
+                        <h1 class="bg-dark text-light text-center fs-1" style="
+                            font-family: 'Handlee', cursive;">IPad</h1>
+                        <h2 class=" fs-2 text-danger">$450</h2>
+                        <p>Category : iPad</p>
+                        <p>Availibility : In Stock</p>
+                        <p>iPad headphone is an innovative oil filled radiator with the most modern technology. If
+                            you are looking for something that can make your interior look awesome, and at the same
+                            time give you the pleasant warm feeling during the winte</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+                            <div class="pagination-no mt-5">
+                                <ul class="pagination">
+                                    <li class="page-item"><input class="page-link" type="text" name="" value="0"
+                                            id="input" style="    width: 105px;
+                                            height: 59px;">
+                                    </li>
+                                    <div>
+                                        <li class="page-item"><button class="page-link" onclick="increment('input')"><i
+                                                    class="fas fa-caret-up"></i></button></li>
+                                        <li class="page-item"><button class="page-link" onclick="decrement('input')"><i
+                                                    class="fas fa-caret-down"></i></button></li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-sm-12 mt-3">
+                            <div class="row mt-5 d-flex justify-content-center align-items-center">
+                                <div class="col-lg-6">
+                                    <button class="btn btn-danger w-100 ">BUY NOW</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button class="btn btn-danger w-100">ADD TO CART</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bill d-flex justify-content-between">
+                        <p>price</p>
+                        <p>$<span id="bill">0.00</span></p>
+                    </div>
+                    <div class="total-bill d-flex justify-content-between">
+                        <p>Vat</p>
+                        <p>$<span id="vat">20.00</span></p>
+                    </div>
+                    <hr>
+                    <div class="total-bill d-flex justify-content-between">
+                        <p>Total Bill</p>
+                        <p>$<span id="total-bill">0.00</span></p>
+                    </div>
+
+                    <a class="d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Discount code
+                        <p><i class="fas fa-chevron-down"></i></p>
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <input type="text" name="" id="dis" placeholder="enter your code">
+                        <small id="error">Good Luck</small>
+                    </div>
+                    <button class="btn btn-primary  w-100 mt-2" onclick="btn()">apply</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+    <script class="text/javascript">
+        var bill = document.getElementById('bill');
+        var vat = document.getElementById('vat');
+        var totalBill = document.getElementById('total-bill');
+        var dis = document.getElementById('dis');
+        const btn1 = (inc) => {
+            var a = document.getElementById(inc);
+        }
+
+        const decrement = (inc) => {
+            var a = document.getElementById(inc);
+            if (a.value <= 0) {
+                a.value = 0;
+                alert('negative value not allow')
+            } else {
+                a.value = parseInt(a.value) - 1;
+                bill.innerHTML = parseInt(bill.innerHTML) - 450;
+                totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
+                a.style.background = "#fff";
+                a.style.color = "000";
+            }
+        }
+        const increment = (inc) => {
+            var a = document.getElementById(inc);
+            if (a.value >= 5) {
+                a.value = 5;
+                alert('max value 5');
+                a.style.background = "red";
+                a.style.color = "#fff";
+            } else {
+                a.value = parseInt(a.value) + 1;
+                bill.innerHTML = parseInt(bill.innerHTML) + 450;
+                totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
+            }
+        }
+
+        const btn = () => {
+            let updateBill = parseInt(totalBill.innerHTML);
+            let error = document.getElementById('error');
+            if (dis.value == 'pino') {
+                latestBill = updateBill - 15;
+                totalBill.innerHTML = latestBill;
+                error.innerHTML = 'yes';
+            } else {
+                error.innerHTML = 'sorry';
+            }
+        }
+    </script>
+</body>
+
+</html>
