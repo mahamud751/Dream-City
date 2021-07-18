@@ -66,48 +66,50 @@
                         </div>
                         <div class="col-lg-7 col-sm-12 mt-3">
                             <div class="row mt-5 d-flex justify-content-center align-items-center">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6" style="margin-bottom: 20px;
+                                display: inline-table">
                                     <button class="btn btn-danger w-100 ">BUY NOW</button>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6" style="margin-bottom: 20px;
+                                display: inline-table">
                                     <button class="btn btn-danger w-100">ADD TO CART</button>
                                 </div>
+
                             </div>
 
                         </div>
 
-                    </div>
 
+                        <div class="bill d-flex justify-content-between">
+                            <p>price</p>
+                            <p>$<span id="bill">0.00</span></p>
+                        </div>
+                        <div class="total-bill d-flex justify-content-between">
+                            <p>Vat</p>
+                            <p>$<span id="vat">20.00</span></p>
+                        </div>
+                        <hr>
+                        <div class="total-bill d-flex justify-content-between">
+                            <p>Total Bill</p>
+                            <p>$<span id="total-bill">0.00</span></p>
+                        </div>
 
-                    <div class="bill d-flex justify-content-between">
-                        <p>price</p>
-                        <p>$<span id="bill">0.00</span></p>
+                        <a class="d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Discount code
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </a>
+                        <div class="collapse" id="collapseExample">
+                            <input type="text" name="" id="dis" placeholder="enter your code">
+                            <small id="error">Good Luck</small>
+                        </div>
+                        <button class="btn btn-primary  w-100 mt-2" onclick="btn()">apply</button>
                     </div>
-                    <div class="total-bill d-flex justify-content-between">
-                        <p>Vat</p>
-                        <p>$<span id="vat">20.00</span></p>
-                    </div>
-                    <hr>
-                    <div class="total-bill d-flex justify-content-between">
-                        <p>Total Bill</p>
-                        <p>$<span id="total-bill">0.00</span></p>
-                    </div>
-
-                    <a class="d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
-                        aria-expanded="false" aria-controls="collapseExample">
-                        Discount code
-                        <p><i class="fas fa-chevron-down"></i></p>
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <input type="text" name="" id="dis" placeholder="enter your code">
-                        <small id="error">Good Luck</small>
-                    </div>
-                    <button class="btn btn-primary  w-100 mt-2" onclick="btn()">apply</button>
                 </div>
             </div>
+
         </div>
 
-    </div>
 
 
 
@@ -120,62 +122,61 @@
 
 
 
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-        crossorigin="anonymous"></script>
-
-    <script class="text/javascript">
-        var bill = document.getElementById('bill');
-        var vat = document.getElementById('vat');
-        var totalBill = document.getElementById('total-bill');
-        var dis = document.getElementById('dis');
-        const btn1 = (inc) => {
-            var a = document.getElementById(inc);
-        }
-
-        const decrement = (inc) => {
-            var a = document.getElementById(inc);
-            if (a.value <= 0) {
-                a.value = 0;
-                alert('negative value not allow')
-            } else {
-                a.value = parseInt(a.value) - 1;
-                bill.innerHTML = parseInt(bill.innerHTML) - 1000;
-                totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
-                a.style.background = "#fff";
-                a.style.color = "000";
+        <script class="text/javascript">
+            var bill = document.getElementById('bill');
+            var vat = document.getElementById('vat');
+            var totalBill = document.getElementById('total-bill');
+            var dis = document.getElementById('dis');
+            const btn1 = (inc) => {
+                var a = document.getElementById(inc);
             }
-        }
-        const increment = (inc) => {
-            var a = document.getElementById(inc);
-            if (a.value >= 5) {
-                a.value = 5;
-                alert('max value 5');
-                a.style.background = "red";
-                a.style.color = "#fff";
-            } else {
-                a.value = parseInt(a.value) + 1;
-                bill.innerHTML = parseInt(bill.innerHTML) + 1000;
-                totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
-            }
-        }
 
-        const btn = () => {
-            let updateBill = parseInt(totalBill.innerHTML);
-            let error = document.getElementById('error');
-            if (dis.value == 'pino') {
-                latestBill = updateBill - 15;
-                totalBill.innerHTML = latestBill;
-                error.innerHTML = 'yes';
-            } else {
-                error.innerHTML = 'sorry';
+            const decrement = (inc) => {
+                var a = document.getElementById(inc);
+                if (a.value <= 0) {
+                    a.value = 0;
+                    alert('negative value not allow')
+                } else {
+                    a.value = parseInt(a.value) - 1;
+                    bill.innerHTML = parseInt(bill.innerHTML) - 1000;
+                    totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
+                    a.style.background = "#fff";
+                    a.style.color = "000";
+                }
             }
-        }
-    </script>
+            const increment = (inc) => {
+                var a = document.getElementById(inc);
+                if (a.value >= 5) {
+                    a.value = 5;
+                    alert('max value 5');
+                    a.style.background = "red";
+                    a.style.color = "#fff";
+                } else {
+                    a.value = parseInt(a.value) + 1;
+                    bill.innerHTML = parseInt(bill.innerHTML) + 1000;
+                    totalBill.innerHTML = parseInt(bill.innerHTML) + parseInt(vat.innerHTML);
+                }
+            }
+
+            const btn = () => {
+                let updateBill = parseInt(totalBill.innerHTML);
+                let error = document.getElementById('error');
+                if (dis.value == 'pino') {
+                    latestBill = updateBill - 15;
+                    totalBill.innerHTML = latestBill;
+                    error.innerHTML = 'yes';
+                } else {
+                    error.innerHTML = 'sorry';
+                }
+            }
+        </script>
 </body>
 
 </html>
